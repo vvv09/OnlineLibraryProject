@@ -1,0 +1,57 @@
+/* 
+    Created on : 05.05.2018, 12:18:40
+    Author     : Vadim Valunskii
+*/
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    background-color: #80B3FF;
+    margin: 100px;
+}
+
+.main {
+    background-color: #ffffff;
+    width: 1000px;
+    height: 550px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    color: #000;
+    text-align: center;
+    font-size: 18px;
+    font-weght: bold;
+}
+
+.text {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.login_form{
+    padding-left: 50px;
+    text-align: center;
+    padding: 20px;
+}
+
+.login_div{
+    width: 350px;
+    border: 1px solid #eaeaea;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.footer {
+    color: #C7C7C7;
+    height: 50px;
+    text-align: center;
+    margin: 50px;
+}
+
+.content {
+    height: 300px;
+}
