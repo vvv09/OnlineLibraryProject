@@ -1,6 +1,6 @@
-package java.com.valunskii.libraryproject.beans;
+package com.valunskii.libraryproject.beans;
 
-import java.com.valunskii.libraryproject.database.Database;
+import com.valunskii.libraryproject.database.Database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,29 +12,29 @@ import java.util.logging.Logger;
 public class AuthorList {
 
     private ArrayList<Author> authorList = new ArrayList<>();
+    private Database database;
 
     private ArrayList<Author> getAuthors() {
         Statement statement = null;
         ResultSet resultSet = null;
-        Connection connection = null;
         try {
-            connection = Database.getConnection();
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM author");
+            statement = database.getConnection().createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM author ORDER BY short_name;");
             while(resultSet.next()) {
                 Author author = new Author();
-                author.setName(resultSet.getString("fio"));
+                author.setShortName(resultSet.getString("short_name"));
+                author.setFio(resultSet.getString("fio"));
+                author.setBirthday(resultSet.getDate("birthday"));
                 authorList.add(author);
             }
         } catch (SQLException e) {
-            Logger.getLogger(ArrayList.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(AuthorList.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try{
                 if(statement != null) statement.close();
                 if(resultSet != null) resultSet.close();
-                if(connection != null) connection.close();
             } catch (SQLException e) {
-                Logger.getLogger(ArrayList.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(AuthorList.class.getName()).log(Level.SEVERE, null, e);
             }
 
         }

@@ -6,6 +6,31 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>pages/index.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    <jsp-config>
+        <jsp-property-group>
+            <display-name>header_and_footer</display-name>
+            <url-pattern>/pages/*</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
+            <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
+        </jsp-property-group>
+    </jsp-config>
+    <resource-ref>
+        <res-ref-name>jdbc/Library</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+        <lookup-name>java:jboss/datasources/MySQLDataSource</lookup-name>
+        <!--change line above to another JNDI from standalone.xml for another DB-->
+    </resource-ref>
+    <servlet>
+        <servlet-name>ShowImage</servlet-name>
+        <servlet-class>com.valunskii.libraryproject.servlets.ShowImage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowImage</servlet-name>
+        <url-pattern>/ShowImage</url-pattern>
+    </servlet-mapping>
 </web-app>

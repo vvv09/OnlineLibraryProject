@@ -1,4 +1,4 @@
-package java.com.valunskii.libraryproject.database;
+package com.valunskii.libraryproject.database;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

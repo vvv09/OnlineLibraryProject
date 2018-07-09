@@ -34,6 +34,6 @@
             <div class="footer">
                 Разработчик: Вадим Валунский, 2018г
             </div>
-        </div>>
+        </div>
     </body>
 </html>

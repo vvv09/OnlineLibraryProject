@@ -1,4 +1,6 @@
-package java.com.valunskii.libraryproject.beans;
+package com.valunskii.libraryproject.beans;
+
+import java.util.Date;
 
 public class Author {
 
@@ -6,17 +8,44 @@ public class Author {
 
     }
 
-    private String name;
+    private long id;
+    private String fio;
+    private String shortName;
+    private Date birthday;
 
-    public Author(String name) {
-        this.name = name;
+    public Author(String fio) {
+        this.fio = fio;
     }
 
-    public String getName() {
-        return name;
+    public long getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getFio() {
+        return fio;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }
