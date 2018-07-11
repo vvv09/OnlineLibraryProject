@@ -4,11 +4,35 @@
     <h4>Жанры:</h4>
     <ul class="nav">
         <jsp:useBean id="genreList" class="com.valunskii.libraryproject.beans.GenreList" scope="application"/>
+
+        <%
+            long selectGenreId = 0;
+            if (request.getParameter("genre_id") != null) {
+                selectGenreId = Long.valueOf(request.getParameter("genre_id"));
+            } else if (session.getAttribute("genre_id") != null) {
+                selectGenreId = Long.valueOf(session.getAttribute("genre_id").toString());
+            }
+
+            session.setAttribute("genreId", selectGenreId);
+        %>
+        <li><a href="books.jsp?genre_id=0">Все книги</a></li>
+
         <%
             for (Genre genre : genreList.getGenreList()) {
+                if(selectGenreId != 0 && selectGenreId == genre.getId()) {
         %>
-        <li><a href="books.jsp?genre_id=<%=genre.getId()%>&name=<%=genre.getName()%>"><%=genre.getName()%></a></li>
 
-        <%}%>
+        <li><a style="color:red;" href="books.jsp?genre_id=<%=genre.getId()%>"><%=genre.getName()%></a></li>
+
+        <%
+                } else {
+        %>
+
+        <li><a href="books.jsp?genre_id=<%=genre.getId()%>"><%=genre.getName()%></a></li>
+
+        <%
+                }
+            }
+        %>
     </ul>
 </div>
