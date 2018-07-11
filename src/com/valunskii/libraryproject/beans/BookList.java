@@ -19,7 +19,6 @@ public class BookList {
         ResultSet resultSet = null;
         try {
             statement = Database.getConnection().createStatement();
-            System.out.println(query);
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 Book book = new Book();
@@ -44,7 +43,6 @@ public class BookList {
                 Logger.getLogger(BookList.class.getName()).log(Level.SEVERE, null, e);
             }
         }
-        System.out.println(bookList);
         return bookList;
     }
 

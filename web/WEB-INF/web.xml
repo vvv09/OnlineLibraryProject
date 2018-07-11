@@ -33,4 +33,12 @@
         <servlet-name>ShowImage</servlet-name>
         <url-pattern>/ShowImage</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>PdfContent</servlet-name>
+        <servlet-class>com.valunskii.libraryproject.servlets.PdfContent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PdfContent</servlet-name>
+        <url-pattern>/PdfContent</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -1,7 +1,14 @@
 package com.valunskii.libraryproject.beans;
 
+import com.valunskii.libraryproject.database.Database;
+
 import java.awt.*;
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Book implements Serializable {
@@ -20,6 +27,30 @@ public class Book implements Serializable {
     private int publishYear;
     private String publisher;
     private byte[] image;
+
+
+    public void fillPdfContent() {
+
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            statement = Database.getConnection().createStatement();
+            resultSet = statement.executeQuery("SELECT content FROM book WHERE id=" + this.getId());
+            while (resultSet.next()) {
+                this.setContent(resultSet.getBytes("content"));
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(BookList.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (statement != null) statement.close();
+                if (resultSet != null) resultSet.close();
+            } catch (SQLException e) {
+                Logger.getLogger(BookList.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+    }
 
     public long getId() {
         return id;
