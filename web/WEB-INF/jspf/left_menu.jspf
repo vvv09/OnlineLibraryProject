@@ -1,7 +1,7 @@
 <%@page import="com.valunskii.libraryproject.beans.Genre"%>
 <%@ page pageEncoding="UTF-8" %>
 <div class="sidebar1">
-    <h4>Жанры:</h4>
+    <h4>Выберите жанр:</h4>
     <ul class="nav">
         <jsp:useBean id="genreList" class="com.valunskii.libraryproject.beans.GenreList" scope="application"/>
 
@@ -15,7 +15,7 @@
 
             session.setAttribute("genreId", selectGenreId);
         %>
-        <li><a href="books.jsp?genre_id=0">Все книги</a></li>
+        <li><a href="books.jsp?genre_id=0">Все жанры</a></li>
 
         <%
             for (Genre genre : genreList.getGenreList()) {

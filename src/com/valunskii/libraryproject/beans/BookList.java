@@ -52,7 +52,7 @@ public class BookList {
         } else {
             return getBooks("SELECT b.id, b.name, b.isbn, b.page_count, b.publish_year, " +
                     "p.name AS publisher, " +
-                    "a.fio AS author, " +
+                    "a.short_name AS author, " +
                     "g.name AS genre," +
                     "b.image FROM book b " +
                     "INNER JOIN author a ON b.author_id = a.id " +
@@ -66,7 +66,7 @@ public class BookList {
         if(id == 0) return getAllBooks();
         else return getBooks("SELECT b.id, b.name, b.isbn, b.page_count, b.publish_year, " +
                                       "p.name AS publisher, " +
-                                      "a.fio AS author, " +
+                                      "a.short_name AS author, " +
                                       "g.name AS genre," +
                                       "b.image FROM book b " +
                                 "INNER JOIN author a ON b.author_id = a.id " +
@@ -78,7 +78,7 @@ public class BookList {
     public ArrayList<Book> getBooksByLetter(String letter) {
         return getBooks("SELECT b.id, b.name, b.isbn, b.page_count, b.publish_year, " +
                 "p.name AS publisher, " +
-                "a.fio AS author, " +
+                "a.short_name AS author, " +
                 "g.name AS genre," +
                 "b.image FROM book b " +
                 "INNER JOIN author a ON b.author_id = a.id " +
@@ -90,7 +90,7 @@ public class BookList {
     public ArrayList<Book> getBooksBySearch(String searchString, SearchType type) {
         StringBuilder sql = new StringBuilder("SELECT b.id, b.name, b.isbn, b.page_count, b.publish_year, " +
                                                 "p.name AS publisher, " +
-                                                "a.fio AS author, " +
+                                                "a.short_name AS author, " +
                                                 "g.name AS genre," +
                                                 "b.image FROM book b " +
                                                 "INNER JOIN author a ON b.author_id = a.id " +

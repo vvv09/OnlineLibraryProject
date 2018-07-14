@@ -27,24 +27,21 @@
 <div class="container">
 
     <div class="header">
-        <div class="logo">
-            <img src="../images/library_logo.png" alt="Логотип" name="logo" />
-        </div>
         <div class="descr">
-            <h3>Онлайн библиотека Вадима Валунского</h3>
+            <h3>ОНЛАЙН БИБЛИОТЕКА ВАДИМА ВАЛУНСКОГО</h3>
         </div>
-        <div class="welome">
-            <h5>Добро пожаловать, <%=session.getAttribute("username")%> !</h5>
-            <h6><a href="../index.jsp">выйти</a> </h6>
+        <div class="welcome">
+            <h5>Вы вошли как <%=session.getAttribute("username")%> <a href="../index.jsp">(выйти)</a>!</h5>
         </div>
-        <div class="search_form">
-            <form name="search_form" method="GET" action="books.jsp">
-                <input type="text" name="search_string" value="<%=searchString%>" size="110" />
-                <input class="search_button" type="submit" value="Поиск" />
-                <select name="search_option">
-                    <option>Название</option>
-                    <option>Автор</option>
-                </select>
-            </form>
-        </div>
+    </div>
+
+    <div class="search_form">
+        <form name="search_form" method="GET" action="books.jsp">
+            <input type="text" name="search_string" value="<%=searchString%>" size="100" /> Искать по
+            <select name="search_option">
+                <option>названию</option>
+                <option>автору</option>
+            </select>
+            <input class="search_button" type="submit" value="Поиск" />
+        </form>
     </div>

@@ -1,6 +1,9 @@
 <%@ page pageEncoding="UTF-8" %>
-<div class="leters">
+<div class="letters">
     <jsp:useBean id="letterList" class="com.valunskii.libraryproject.beans.LetterList" scope="application"/>
+
+    <pre>			</pre> <!-- Перед выводом строчки букв выводим пробелы - чтобы сдвинуть буквы вправо-->
+
     <%
         String searchLetter = null;
 

@@ -15,7 +15,7 @@
     <body>
         <div class="main">
             <div class="content">
-                <p class="title"><span class="text"><img src="images/bookshelf.png"wight="76" height="77" hspace="10" vspace="10" align="midle"></span></p>
+                <%--<p class="title"><span class="text"><img src="images/bookshelf.png"wight="76" height="77" hspace="10" vspace="10" align="midle"></span></p>--%>
                 <p class="title">Онлайн библиотека</p>
                 <p class="text">Добро пожаловать в онлайн библиотеку, где вы сможите найти любую книгу на ваш вкус.
                                 Доcтупны функции поиска, просмора, сортировки и многое другое.</p>
@@ -25,7 +25,7 @@
             
             <div class="login_div">
                 <p class="title">Для входа введите свои данные</p>
-                <form class="login_form" name="username" action="pages/main.jsp" method="POST">
+                <form class="login_form" name="username" action="pages/books.jsp?genre_id=0" method="POST">
                 Имя: <input type="text" name="username" value="" size="20" />
                 <input type="submit" value="Войти" />
                 </form>
